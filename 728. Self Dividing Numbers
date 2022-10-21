@@ -1,0 +1,25 @@
+class Solution {
+	public boolean isSelfDividing(int num) {
+		int temp = num;
+		int l;
+		while(temp>0) {
+			l=temp%10;
+			if (l==0 || num%l!=0) {
+				return false;
+			}
+			temp = temp/10;
+		}
+		return true;
+	}
+	
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        
+    	List<Integer> output = new ArrayList<Integer>();
+        for(int i=left; i<=right; i++) {
+        	if(isSelfDividing(i)) {
+        		output.add(i);
+        	}
+        }
+        return output;
+    }
+}
